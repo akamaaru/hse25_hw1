@@ -62,6 +62,18 @@
 
 - На основе файлов `.bedGraph` с помощью библиотеки `matplotlib` построим гистограммы распределения метилирования на каждом этапе.
 
+  Код построения гистограммы на примере образца `8-cell`:
+
+  ```
+  filename = "bismark/calling/s_8_cell.deduplicated.bedGraph"
+  df = pd.read_csv(filename, delimiter='\t', skiprows=1, header=None)
+  
+  plt.figure(figsize=[10, 6])
+  plt.title("Распределение метилирования 8-cell", fontsize=16)
+  plt.hist(df[3], bins=20, density=True)
+  plt.show()
+  ```
+
   Посмотрим на гистограмму распределения у образца `8-cell`:
   
   ![](https://github.com/akamaaru/hse25_hw1/blob/main/img/cell_hist.png)
